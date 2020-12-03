@@ -15,13 +15,13 @@ import {
   Tabs,
   Toast,
   Alert,
-} from "react-bootstrap";
-import logo from "./logo.png";
-import "./App.css";
-import response from "./saree_img.js";
+} from 'react-bootstrap';
+import logo from './logo.png';
+import './App.css';
+import response from './saree_img.js';
 
-import React, { useState, useEffect, Component } from "react";
-import { getAllByPlaceholderText } from "@testing-library/react";
+import React, { useState, useEffect, Component } from 'react';
+// import { getAllByPlaceholderText } from "@testing-library/react";
 
 function Navigation() {
   return (
@@ -51,9 +51,9 @@ function Heading() {
         thumbnail
         style={{
           backgroundImage: `url(${logo})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundColor: "#d5bda1",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundColor: '#d5bda1',
         }}
       ></Jumbotron>
     </React.Fragment>
@@ -78,9 +78,9 @@ function ControlledTabs() {
       <Tab eventKey="home" title="Sarees ">
         <Container
           style={{
-            display: "flex",
-            "flex-wrap": "wrap",
-            "justify-content": "space-around",
+            display: 'flex',
+            'flex-wrap': 'wrap',
+            'justify-content': 'space-around',
           }}
         >
           <Popular_News />
@@ -89,9 +89,9 @@ function ControlledTabs() {
       <Tab eventKey="profile" title="Dress Material">
         <Container
           style={{
-            display: "flex",
-            "flex-wrap": "wrap",
-            "justify-content": "space-around",
+            display: 'flex',
+            'flex-wrap': 'wrap',
+            'justify-content': 'space-around',
           }}
         >
           <Popular_News />
@@ -101,7 +101,7 @@ function ControlledTabs() {
   );
 }
 
-const API_C = "sample";
+const API_C = 'sample';
 
 class Popular_News extends React.Component {
   constructor(props) {
@@ -125,11 +125,11 @@ class Popular_News extends React.Component {
   render() {
     console.log(this.state.Response, this.state.ResponseState);
     return this.state.ResponseState ? (
-      this.state.Response["product"].map((product) => (
+      this.state.Response['product'].map((product) => (
         <Article img={product.img} name={product.name} price={product.price} />
       ))
     ) : (
-      <div style={{ margin: "10px" }}>
+      <div style={{ margin: '10px' }}>
         <ErrorMessage />
       </div>
     );
@@ -143,18 +143,17 @@ function ErrorMessage() {
 }
 
 function Article(props) {
-  console.log(props.name);
   return (
-    <Card style={{ width: "18rem", margin: "10px" }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
+    <Card style={{ width: '18rem', margin: '10px' }}>
+      {/* <Card.Img variant="top" src="./logo.png" /> */}
+      {/* <Card.Img src={require('./images/test1.jpg')} /> */}
 
       <Card.Body>
         <Card.Text>
-          {" "}
           <strong> {props.name} </strong>
         </Card.Text>
-        <Card.Img src={require("./images/test1.jpg")} />
       </Card.Body>
+      <img src={props.img} />
       <ListGroup className="list-group-flush">
         <ListGroupItem> </ListGroupItem>
         <ListGroupItem>Price : {props.price} </ListGroupItem>
